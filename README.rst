@@ -4,11 +4,11 @@ Persian SpellChecker
 .. image:: https://img.shields.io/badge/license-MIT-blue.svg
     :target: https://opensource.org/licenses/MIT/
     :alt: License
-.. image:: https://img.shields.io/github/release/barrust/fa-spellchecker.svg
-    :target: https://github.com/barrust/fa-spellchecker/releases
+.. image:: https://img.shields.io/github/release/AshkanFeyzollahi/fa-spellchecker.svg
+    :target: https://github.com/AshkanFeyzollahi/fa-spellchecker/releases
     :alt: GitHub release
-.. image:: https://github.com/barrust/fa-spellchecker/workflows/Python%20package/badge.svg
-    :target: https://github.com/barrust/fa-spellchecker/actions?query=workflow%3A%22Python+package%22
+.. image:: https://github.com/AshkanFeyzollahi/fa-spellchecker/workflows/Python%20package/badge.svg
+    :target: https://github.com/AshkanFeyzollahi/fa-spellchecker/actions?query=workflow%3A%22Python+package%22
     :alt: Build Status
 .. image:: https://badge.fury.io/py/fa-spellchecker.svg
     :target: https://badge.fury.io/py/fa-spellchecker
