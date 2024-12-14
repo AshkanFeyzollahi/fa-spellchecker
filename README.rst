@@ -1,5 +1,5 @@
 Persian SpellChecker
-===
+===============================================================================
 
 .. image:: https://img.shields.io/badge/license-MIT-blue.svg
     :target: https://opensource.org/licenses/MIT/
@@ -18,7 +18,7 @@ As said in **pyspellchecker**, It uses a Levenshtein Distance algorithm to find 
 **fa-spellchecker** is specially made for persian language! And, **fa-spellchecker** only supports **Python>=3.7**!
 
 Installation
----
+-------------------------------------------------------------------------------
 
 The easiest and recommended way to install is using **Pip**:
 
@@ -36,12 +36,12 @@ But to build it from its source:
 
 
 Quickstart
----
+-------------------------------------------------------------------------------
 
 Check out **On-line documentations** about quick start!
 
 Credits
----
+-------------------------------------------------------------------------------
 
 * `Peter Norvig <https://norvig.com/spell-correct.html>`__ blog post on setting up a simple spell checking algorithm.
 * `persiannlp/persian-raw-text <https://github.com/persiannlp/persian-raw-text>`__ Contains a huge amount of Persian text such as Persian corpora. VOA corpus was collected from this repository in order to create a word frequency list!
