@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fa-spellchecker"
+authors = [{name = "Ashkan Feyzollahi", email = "ashkanfeyzollahi@gmail.com"}]
+license = { text = "MIT" }
+version = "0.0.1"
+description = "Pure Python Spell Checking"
+keywords = [
+    "python",
+    "spelling",
+    "natural language processing",
+    "nlp",
+    "typo",
+    "checker",
+    "persian",
+]
+requires-python = ">=3.7"
+readme = "README.rst"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: Science/Research",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Utilities",
+    "License :: OSI Approved",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.setuptools.package-data]
+faspellchecker = ["*.gz"]
+
+[project.urls]
+homepage = "https://github.com/AshkanFeyzollahi/fa-spellchecker"
+bug-tracker = "https://github.com/AshkanFeyzollahi/fa-spellchecker/issues"
+# documentation = "https://fa-spellchecker.readthedocs.io/"
+
+[project.optional-dependencies]
+dev = ["black", "isort"]
