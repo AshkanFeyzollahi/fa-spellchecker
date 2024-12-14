@@ -1,10 +1,10 @@
 Quickstart
-===
+===============================================================================
 
 **fa-spellchecker** is designed to be easy to use to get basic spell checking.
 
 Installation
----
+-------------------------------------------------------------------------------
 
 The easiest and recommended way to install is using **Pip**:
 
@@ -21,10 +21,10 @@ But to build it from its source:
     python -m build
 
 Basic Usage
----
+-------------------------------------------------------------------------------
 
 Spell checker
-^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Setting up the spell checker requires importing and initializing the instance.
 
@@ -77,7 +77,7 @@ Or if the word identified as the likeliest is not correct, a list of candidates 
         spellchecker.candidates(word)  # {'مابون', 'سابو', 'ساسون', 'تابون', 'صابون', 'گابون', 'سالون'}
 
 Vocabulary
-^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Vocabulary is where you can add, remove & etc. words to spell checker. Actually there are many other usages which can be found at below!
 
