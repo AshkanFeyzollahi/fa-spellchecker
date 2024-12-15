@@ -5,9 +5,11 @@ Persian SpellChecker
     :target: https://opensource.org/licenses/MIT/
     :alt: License
 .. image:: https://img.shields.io/github/v/release/AshkanFeyzollahi/fa-spellchecker
-   :alt: GitHub Release
+    :target: https://github.com/AshkanFeyzollahi/fa-spellchecker/releases/
+    :alt: GitHub Release
 .. image:: https://img.shields.io/pypi/v/fa-spellchecker
-   :alt: PyPI - Version
+    :target: https://pypi.org/project/fa-spellchecker/
+    :alt: PyPI - Version
 
 Pure Python Persian Spell Checking based on `Peter Norvig's blog post <https://norvig.com/spell-correct.html>`__ on setting up a simple spell checking algorithm and also inspired by `pyspellchecker <https://github.com/barrust/pyspellchecker>`__.
 
