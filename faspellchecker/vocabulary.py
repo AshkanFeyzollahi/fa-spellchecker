@@ -55,10 +55,10 @@ class Vocabulary:
         """
 
         # Load vocabulary file as GzipFile object
-        self._vocabulary_gzip_handle = gzip.open(self._vocabulary_path, "rt+")
+        self._vocabulary_readable_gzip_handle = gzip.open(self._vocabulary_path, "rt")
 
         # And read its contents and convert it to a dictionary object
-        self._vocabulary = json.load(self._vocabulary_gzip_handle)
+        self._vocabulary = json.load(self._vocabulary_readable_gzip_handle)
 
     def _create_a_vocabulary_clone(self) -> None:
         """
@@ -79,7 +79,15 @@ class Vocabulary:
         (Private method) Update vocabulary
         """
 
-        self._vocabulary_gzip_handle.write(json.dumps(self._vocabulary))
+        # Close vocabulary gzip file
+        self._vocabulary_readable_gzip_handle.close()
+
+        # Update vocabulary file
+        with gzip.open(self._vocabulary_path, "wt") as gzip_f:
+            gzip_f.write(str(self._vocabulary))
+
+        # Reload vocabulary file as GzipFile object
+        self._vocabulary_readable_gzip_handle = gzip.open(self._vocabulary_path, "rt")
 
     def insert_word(self, word: str, *, frequency: int = 1) -> None:
         """
