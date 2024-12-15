@@ -47,12 +47,7 @@ autodoc_typehints = "description"
 autodoc_typehints_description_target = "documented_params"
 autoclass_content = "both"
 
-html_sidebars = {
-    "**": [
-        "relations.html",
-        "searchbox.html",
-    ]
-}
+html_sidebars = { '**': ['globaltoc.html', 'relations.html', 'sourcelink.html', 'searchbox.html'] }
 
 htmlhelp_basename = "fa-spellchecker-doc"
 
