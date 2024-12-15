@@ -67,7 +67,7 @@ class Vocabulary:
         """
 
         # Get the package directory
-        package_directory = pathlib.Path(__name__).absolute().parent / "faspellchecker"
+        package_directory = pathlib.Path(__file__).parent
 
         # Clone the default vocabulary file
         shutil.copyfile(
