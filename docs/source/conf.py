@@ -41,6 +41,12 @@ todo_include_todos = True
 
 html_theme = "alabaster"
 
+autosummary_generate = True
+autosummary_generate_overwrite = False
+autodoc_typehints = "description"
+autodoc_typehints_description_target = "documented_params"
+autoclass_content = "both"
+
 html_sidebars = {
     "**": [
         "relations.html",
