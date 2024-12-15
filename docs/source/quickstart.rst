@@ -48,7 +48,7 @@ Ways to check if a word is in the vocabulary:
     spellchecker.known(['صابون', 'سابون']) # {'صابون'}
 
     # find those words from a list of words that are not found in the vocabulary
-    spellchecker.known(['صابون', 'سابون']) # {'سابون'}
+    spellchecker.unknown(['صابون', 'سابون']) # {'سابون'}
 
 Once a word is identified as misspelled, you can find the likeliest replacement:
 

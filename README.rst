@@ -38,7 +38,17 @@ But to build it from its source:
 Quickstart
 -------------------------------------------------------------------------------
 
-Check out `On-line documentations <https://fa-spellchecker.readthedocs.io/en/latest/>`__ about quick start!
+A great example to start using **fa-spellchecker**:
+
+.. code:: python
+
+    from faspellchecker import SpellChecker
+
+    spellchecker = SpellChecker()
+
+    spellchecker.correction('سابون') # 'صابون'
+
+For more information on how to use this package, check out `On-line documentations <https://fa-spellchecker.readthedocs.io/en/latest/>`__ about quick start!
 
 Credits
 -------------------------------------------------------------------------------
