@@ -8,17 +8,9 @@ Here you can find the full developer API reference for the fa-spellchecker proje
 
 .. automodule:: faspellchecker.spellchecker
    :members:
-   :undoc-members:
-   :special-members:
-   :inherited-members:
-   :show-inheritance:
 
 :mod:`faspellchecker.vocabulary`
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. automodule:: faspellchecker.vocabulary
    :members:
-   :undoc-members:
-   :special-members:
-   :inherited-members:
-   :show-inheritance:
