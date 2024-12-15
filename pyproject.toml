@@ -50,7 +50,7 @@ faspellchecker = ["*.gz"]
 [project.urls]
 homepage = "https://github.com/AshkanFeyzollahi/fa-spellchecker"
 bug-tracker = "https://github.com/AshkanFeyzollahi/fa-spellchecker/issues"
-# documentation = "https://fa-spellchecker.readthedocs.io/"
+documentation = "https://fa-spellchecker.readthedocs.io/en/latest/"
 
 [project.optional-dependencies]
 dev = ["black", "isort"]
