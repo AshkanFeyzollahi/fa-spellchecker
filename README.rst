@@ -10,6 +10,8 @@ Persian SpellChecker
 .. image:: https://img.shields.io/pypi/v/fa-spellchecker
     :target: https://pypi.org/project/fa-spellchecker/
     :alt: PyPI - Version
+.. image:: https://img.shields.io/readthedocs/fa-spellchecker
+   :alt: Read the Docs
 
 Pure Python Persian Spell Checking based on `Peter Norvig's blog post <https://norvig.com/spell-correct.html>`__ on setting up a simple spell checking algorithm and also inspired by `pyspellchecker <https://github.com/barrust/pyspellchecker>`__.
 
