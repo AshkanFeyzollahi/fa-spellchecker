@@ -15,12 +15,12 @@ class SpellChecker:
     simple spell checking algorithm
 
     :param vocabulary: A vocabulary for use with spellchecker,
-        defaults to Vocabulary()
+        defaults to None
     :type vocabulary: Vocabulary, optional
     """
 
-    def __init__(self, vocabulary: Vocabulary = Vocabulary()):
-        self._vocabulary = vocabulary
+    def __init__(self, vocabulary: Vocabulary | None = None):
+        self._vocabulary = vocabulary if vocabulary is not None else Vocabulary()
 
     @property
     def vocabulary(self) -> Vocabulary:
