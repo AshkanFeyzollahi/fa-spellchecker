@@ -11,7 +11,7 @@ Persian SpellChecker
     :target: https://pypi.org/project/fa-spellchecker/
     :alt: PyPI - Version
 
-Pure Python Persian Spell Checking based on `Peter Norvig's blog post <https://norvig.com/spell-correct.html>` on setting up a simple spell checking algorithm and also inspired by `pyspellchecker <https://github.com/barrust/pyspellchecker>`__.
+Pure Python Persian Spell Checking based on `Peter Norvig's blog post <https://norvig.com/spell-correct.html>`__ on setting up a simple spell checking algorithm and also inspired by `pyspellchecker <https://github.com/barrust/pyspellchecker>`__.
 
 As said in **pyspellchecker**, It uses a Levenshtein Distance algorithm to find permutations within an edit distance of 2 from the original word. It then compares all permutations (insertions, deletions, replacements, and transpositions) to known words in a word frequency list. Those words that are found more often in the frequency list are more likely the correct results.
 
@@ -38,10 +38,10 @@ But to build it from its source:
 Quickstart
 -------------------------------------------------------------------------------
 
-Check out `On-line documentations <https://fa-spellchecker.readthedocs.io/en/latest/>` about quick start!
+Check out `On-line documentations <https://fa-spellchecker.readthedocs.io/en/latest/>`__ about quick start!
 
 Credits
 -------------------------------------------------------------------------------
 
-* `Peter Norvig <https://norvig.com/spell-correct.html>` blog post on setting up a simple spell checking algorithm.
-* `persiannlp/persian-raw-text <https://github.com/persiannlp/persian-raw-text>` Contains a huge amount of Persian text such as Persian corpora. VOA corpus was collected from this repository in order to create a word frequency list!
+* `Peter Norvig <https://norvig.com/spell-correct.html>`__ blog post on setting up a simple spell checking algorithm.
+* `persiannlp/persian-raw-text <https://github.com/persiannlp/persian-raw-text>`__ Contains a huge amount of Persian text such as Persian corpora. VOA corpus was collected from this repository in order to create a word frequency list!
