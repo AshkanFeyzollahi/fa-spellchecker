@@ -1,4 +1,4 @@
-fa-spellchecker api reference
+API Reference
 ===============================================================================
 
 Here you can find the full developer API reference for the fa-spellchecker project.
