@@ -3,16 +3,22 @@ fa-spellchecker api reference
 
 Here you can find the full developer API reference for the fa-spellchecker project.
 
-SpellChecker
+:mod:`faspellchecker.spellchecker`
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. autoclass:: spellchecker.SpellChecker
-    :members:
-    :inherited-members:
+.. automodule:: faspellchecker.spellchecker
+   :members:
+   :undoc-members:
+   :special-members:
+   :inherited-members:
+   :show-inheritance:
 
-Vocabulary
+:mod:`faspellchecker.vocabulary`
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. autoclass:: vocabulary.Vocabulary
-    :members:
-    :inherited-members:
+.. automodule:: faspellchecker.vocabulary
+   :members:
+   :undoc-members:
+   :special-members:
+   :inherited-members:
+   :show-inheritance:
