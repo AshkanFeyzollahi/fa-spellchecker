@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "fa-spellchecker"
 authors = [{name = "Ashkan Feyzollahi", email = "ashkanfeyzollahi@gmail.com"}]
 license = { text = "MIT" }
-version = "0.0.3"
+version = "0.0.4"
 description = "Pure Python Spell Checking"
 keywords = [
     "python",
