@@ -38,7 +38,7 @@ for word in collected_contents.split():
         vocabulary_json[word] = 1
 
 # Then open a gzip-compressed file
-vocabulary_gzip_file = gzip.open("fa-vocabulary.json.gz", "wt")
+vocabulary_gzip_file = gzip.open("faspellchecker/fa-vocabulary.json.gz", "wt")
 
 # Then save collected words into it!
 json.dump(vocabulary_json, vocabulary_gzip_file)
