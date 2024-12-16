@@ -18,7 +18,7 @@ Pure Python Persian Spell Checking based on `Peter Norvig's blog post <https://n
 
 As said in **pyspellchecker**, It uses a Levenshtein Distance algorithm to find permutations within an edit distance of 2 from the original word. It then compares all permutations (insertions, deletions, replacements, and transpositions) to known words in a word frequency list. Those words that are found more often in the frequency list are more likely the correct results.
 
-**fa-spellchecker** is specially made for persian language! And, **fa-spellchecker** only supports **Python>=3.7**!
+**fa-spellchecker** only supports the Persian language! and it requires `Python>=3.7` to work properly. For information on how the Persian vocabulary was created and how it can be updated and improved, please see the **Vocabulary Creation and Updating** section of the readme!
 
 Installation
 -------------------------------------------------------------------------------
@@ -52,6 +52,23 @@ A great example to start using **fa-spellchecker**:
     spellchecker.correction('سابون') # 'صابون'
 
 For more information on how to use this package, check out `On-line documentations <https://fa-spellchecker.readthedocs.io/en/latest/>`__ about quick start!
+
+Vocabulary Creation and Updating
+-------------------------------------------------------------------------------
+
+The creation of the vocabulary is, unfortunately, not an exact science. I have provided a script that, given a text file of words & sentences (in this case from the txt files in the folder `resources <resources/>`__) it will generate a *Persian* word frequency list based on the words found within the text.
+
+Adding new files to `resources <resources/>`__ will lead to force the `scripts/build_vocabulary.py` to use them as a resource to build a Persian vocabulary file which then that vocabulary file will be used by `faspellchecker`.
+
+The easiest way to build Persian vocabulary files using the `scripts/build_vocabulary.py`:
+
+.. code:: bash
+
+    git clone https://github.com/AshkanFeyzollahi/fa-spellchecker.git
+    cd fa-spellchecker
+    python scripts/build_vocabulary.py
+
+Any help in updating and maintaining the vocabulary would be greatly desired. To do this, a `discussion <https://github.com/AshkanFeyzollahi/fa-spellchecker/discussions>`__ could be started on GitHub or pull requests to update the include and exclude files could be added.
 
 Credits
 -------------------------------------------------------------------------------
