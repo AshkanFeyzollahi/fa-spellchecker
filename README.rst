@@ -10,6 +10,8 @@ Persian SpellChecker
 .. image:: https://img.shields.io/pypi/v/fa-spellchecker
     :target: https://pypi.org/project/fa-spellchecker/
     :alt: PyPI - Version
+.. image:: https://img.shields.io/pypi/dm/fa-spellchecker
+   :alt: PyPI - Downloads
 .. image:: https://img.shields.io/readthedocs/fa-spellchecker
     :target: https://fa-spellchecker.readthedocs.io/en/latest/
     :alt: Read the Docs
