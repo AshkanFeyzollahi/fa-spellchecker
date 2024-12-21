@@ -22,8 +22,7 @@ class TestSpellChecker(unittest.TestCase):
         # Test persian words (all)
         self.assertEqual(test_spellchecker.correction("سلام"), "سلام")
         self.assertEqual(test_spellchecker.correction("طنبل"), "تنبل")
-
-        # TODO: Implement more tests for this method
+        self.assertEqual(test_spellchecker.correction("سابون"), "صابون")
 
     def test_candidates(self):
         """
@@ -36,20 +35,28 @@ class TestSpellChecker(unittest.TestCase):
         # Something that doesn't exist in vocabulary, so returns None
         self.assertEqual(test_spellchecker.candidates("حشیبذسهصدشس"), None)
 
-        # TODO: Implement more tests for this method
-
     def test_known(self):
         """
         Test the `known` method
         """
 
-        # Test persian adjectives
+        # Test Persian adjectives
         self.assertEqual(
             test_spellchecker.known(["بد", "آلوده", "سبز", "آرايسگر"]),
             {"بد", "آلوده", "سبز"},
         )
 
-        # TODO: Implement more tests for this method
+        # Test non Persian words
+        self.assertEqual(
+            test_spellchecker.known(["something", "is", "gonna", "happen"]),
+            {"something", "is", "gonna", "happen"}
+        )
+
+        # Test both Persian & non Persian words in a single list
+        self.assertEqual(
+            test_spellchecker.known(["بد", "آلوده", "سبز", "آرايسگر", "something", "is", "gonna", "happen"]),
+            {"بد", "آلوده", "سبز", "something", "is", "gonna", "happen"},
+        )
 
     def test_unknown(self):
         """
@@ -58,10 +65,22 @@ class TestSpellChecker(unittest.TestCase):
 
         # Test persian adjectives
         self.assertEqual(
-            test_spellchecker.unknown(["بد", "آلوده", "سبز", "آرايسگر"]), {"آرايسگر"}
+            test_spellchecker.unknown(["بد", "آلوده", "سبز", "آرايسگر"]),
+            {"آرايسگر"}
         )
 
-        # TODO: Implement more tests for this method
+        # Test non Persian words
+        self.assertEqual(
+            test_spellchecker.known(["something", "is", "gonna", "happen"]),
+            {}
+        )
+
+        # Test both Persian & non Persian words in a single list
+        self.assertEqual(
+            test_spellchecker.known(["بد", "آلوده", "سبز", "آرايسگر", "something", "is", "gonna", "happen"]),
+            {"آرايسگر"}
+        )
+
 
 
 if __name__ == "__main__":

@@ -4,6 +4,7 @@ Spellchecker base module;
 
 import typing
 
+from faspellchecker.utils import is_persian_word
 from faspellchecker.vocabulary import Vocabulary
 
 __all__ = ("SpellChecker",)
@@ -40,7 +41,6 @@ class SpellChecker:
         :rtype: int
         """
 
-        # Return the frequency of `word`.
         return self.vocabulary[word]
 
     def correction(self, word: str) -> str:
@@ -84,7 +84,9 @@ class SpellChecker:
         :rtype: set
         """
 
-        return set(word for word in words if word in self.vocabulary)
+        return set(
+            word for word in words if word in self.vocabulary or is_persian_word(word)
+        )
 
     def unknown(self, words: typing.Iterable[str]) -> typing.Set[str]:
         """
@@ -98,7 +100,9 @@ class SpellChecker:
         :rtype: set
         """
 
-        return set(word for word in words if word not in self.vocabulary)
+        return set(
+            word for word in words if word not in self.vocabulary and not is_persian_word(word)
+        )
 
     def edit_distance_1(self, word: str) -> typing.Set[str]:
         """

@@ -1,7 +1,7 @@
 API Reference
 ===============================================================================
 
-Here you can find the full developer API reference for the fa-spellchecker project.
+Here you can find the full developer API reference for the **fa-spellchecker** project.
 
 :mod:`faspellchecker.spellchecker`
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -9,12 +9,14 @@ Here you can find the full developer API reference for the fa-spellchecker proje
 .. automodule:: faspellchecker.spellchecker
    :members:
 
-.. autoclass:: faspellchecker.spellchecker.SpellChecker
-
 :mod:`faspellchecker.vocabulary`
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. automodule:: faspellchecker.vocabulary
    :members:
 
-.. autoclass:: faspellchecker.vocabulary.Vocabulary
+:mod:`faspellchecker.utils`
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. automodule:: faspellchecker.utils
+   :members:

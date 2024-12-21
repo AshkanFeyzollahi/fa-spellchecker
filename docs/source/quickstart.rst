@@ -3,23 +3,6 @@ Quickstart
 
 **fa-spellchecker** is designed to be easy to use to get basic spell checking.
 
-Installation
--------------------------------------------------------------------------------
-
-The easiest and recommended way to install is using **Pip**:
-
-.. code:: bash
-
-    pip install fa-spellchecker
-
-But to build it from its source:
-
-.. code:: bash
-
-    git clone https://github.com/AshkanFeyzollahi/fa-spellchecker.git
-    cd fa-spellchecker
-    python -m build
-
 Basic Usage
 -------------------------------------------------------------------------------
 

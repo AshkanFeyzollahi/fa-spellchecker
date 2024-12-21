@@ -10,6 +10,7 @@ import shutil
 from typing import Dict
 
 from faspellchecker.exceptions import NonPersianWordError, WordNotFoundError
+from faspellchecker.utils import is_persian_word
 
 __all__ = ("Vocabulary",)
 
@@ -102,7 +103,7 @@ class Vocabulary:
         """
 
         # Check if word is persian, and if so...
-        if re.fullmatch(r"^[آ-ی]+$", word):
+        if is_persian_word(word):
             # Insert the word to vocabulary
             self._vocabulary[word] = frequency
 
