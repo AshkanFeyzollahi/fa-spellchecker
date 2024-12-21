@@ -17,4 +17,4 @@ def is_persian_word(word: str) -> bool:
     :rtype: bool
     """
 
-    return re.fullmatch("^[آ-ی]$+", word) is not None
+    return re.fullmatch("^[آ-ی]+$", word) is not None
