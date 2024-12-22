@@ -3,7 +3,7 @@ name: Upload the Python distribution to GitHub Release
 on:
   workflow_run:
     workflows:
-      - Publish the Python distribution to PyPI
+      - Build distribution
     types:
       - completed
 
@@ -23,7 +23,7 @@ jobs:
       with:
         name: python-package-distributions
         path: dist/
-        run-id: ${{ github.event.workflow_run.id }}
+        run-id: ${{ github.event.project.labels.*.name == 'triggered' && github.event.project.labels.*.name }}
     - name: Sign the dists with Sigstore
       uses: sigstore/gh-action-sigstore-python@v3.0.0
       with:
