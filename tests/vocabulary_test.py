@@ -4,9 +4,8 @@ Test automation for the class `Vocabulary`
 
 import unittest
 
-from faspellchecker import Vocabulary, SpellChecker
+from faspellchecker import SpellChecker, Vocabulary
 from faspellchecker.exceptions import NonPersianWordError
-
 
 test_vocabulary = Vocabulary("test")
 test_spellchecker = SpellChecker(test_vocabulary)
@@ -35,10 +34,7 @@ class TestVocabulary(unittest.TestCase):
 
         test_vocabulary.set_word_frequency("سالم", -1)
 
-        self.assertNotEqual(
-            test_spellchecker.correction("سللم"),
-            "سالم"
-        )
+        self.assertNotEqual(test_spellchecker.correction("سللم"), "سالم")
 
     def test_increase_word_frequency(self):
         """
@@ -49,11 +45,8 @@ class TestVocabulary(unittest.TestCase):
             test_vocabulary.insert_word("سلام")
 
         test_vocabulary.increase_word_frequency("سلام", 9999)
-        
-        self.assertEqual(
-            test_spellchecker.correction("سللم"),
-            "سلام"
-        )
+
+        self.assertEqual(test_spellchecker.correction("سللم"), "سلام")
 
     def test_decrease_word_frequency(self):
         """
@@ -62,10 +55,7 @@ class TestVocabulary(unittest.TestCase):
 
         test_vocabulary.decrease_word_frequency("سالم", 9999)
 
-        self.assertNotEqual(
-            test_spellchecker.correction("سللم"),
-            "سالم"
-        )
+        self.assertNotEqual(test_spellchecker.correction("سللم"), "سالم")
 
     def test_delete_word(self):
         """

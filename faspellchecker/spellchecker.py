@@ -30,14 +30,14 @@ class SpellChecker:
 
         return self._vocabulary
 
-    def word_frequency(self, word: str, *args, **kwargs) -> int:
+    def word_frequency(self, word: str) -> typing.Optional[int]:
         """
         Get the frequency of `word`.
 
         :param word: The word to get its frequency
         :type word: str
         :return: The word frequency
-        :rtype: int
+        :rtype: Optional[int]
         """
 
         return self.vocabulary[word]
@@ -62,14 +62,14 @@ class SpellChecker:
         :type word: str
         :return: The set of words that are possible candidates or None if there
             are no candidates
-        :rtype: set
+        :rtype: set | None
         """
 
         return (
             self.known([word])
             or self.known(self.edit_distance_1(word))
             or self.known(self.edit_distance_2(word))
-            or [word]
+            or None
         )
 
     def known(self, words: typing.Iterable[str]) -> typing.Set[str]:
@@ -83,9 +83,7 @@ class SpellChecker:
         :rtype: set
         """
 
-        return set(
-            word for word in words if word in self.vocabulary
-        )
+        return set(word for word in words if word in self.vocabulary)
 
     def unknown(self, words: typing.Iterable[str]) -> typing.Set[str]:
         """
@@ -99,9 +97,7 @@ class SpellChecker:
         :rtype: set
         """
 
-        return set(
-            word for word in words if word not in self.vocabulary
-        )
+        return set(word for word in words if word not in self.vocabulary)
 
     def edit_distance_1(self, word: str) -> typing.Set[str]:
         """

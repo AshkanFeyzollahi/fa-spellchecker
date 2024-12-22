@@ -48,10 +48,8 @@ class TestSpellChecker(unittest.TestCase):
         """
 
         self.assertEqual(
-            test_spellchecker.unknown(["بد", "آلوده", "سبز", "آرايسگر"]),
-            {"آرايسگر"}
+            test_spellchecker.unknown(["بد", "آلوده", "سبز", "آرايسگر"]), {"آرايسگر"}
         )
-
 
 
 if __name__ == "__main__":

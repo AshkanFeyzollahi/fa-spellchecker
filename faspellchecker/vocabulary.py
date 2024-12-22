@@ -5,7 +5,6 @@ Encompasses a bunch of utility functions for managing persian vocabularies
 import gzip
 import json
 import pathlib
-import re
 import shutil
 from typing import Dict
 
@@ -85,7 +84,7 @@ class Vocabulary:
 
         # Update vocabulary file
         with gzip.open(self._vocabulary_path, "wt") as gzip_f:
-            gzip_f.write(str(self._vocabulary))
+            json.dump(self._vocabulary, gzip_f)
 
         # Reload vocabulary file as GzipFile object
         self._vocabulary_readable_gzip_handle = gzip.open(self._vocabulary_path, "rt")
@@ -113,7 +112,7 @@ class Vocabulary:
             return
 
         # Raise an exception if the word is not a persian word
-        raise NonPersianWordError(f"{word:!r} is not a persian word!")
+        raise NonPersianWordError(f"{word!r} is not a persian word!")
 
     def set_word_frequency(self, word: str, frequency: int) -> None:
         """
@@ -138,7 +137,7 @@ class Vocabulary:
 
         # IF THE WORD DOESN'T EXIST IN VOCABULARY, RAISE AN EXCEPTION
         raise WordNotFoundError(
-            f"There is no word {word:!r} to set its frequency. "
+            f"There is no word {word!r} to set its frequency. "
             "Instead use method `insert_word`"
         )
 
@@ -156,16 +155,13 @@ class Vocabulary:
         # If the word is found in vocabulary, and if so...
         if word in self:
             # Increase word frequency
-            self._vocabulary[word] = self._vocabulary[word] + increment
-
-            # Update the vocabulary data
-            self._update_vocabulary()
+            self.set_word_frequency(word, self._vocabulary[word] + increment)
 
             return
 
         # IF THE WORD DOESN'T EXIST IN VOCABULARY, RAISE AN EXCEPTION
         raise WordNotFoundError(
-            f"There is no word {word:!r} to increase its frequency. "
+            f"There is no word {word!r} to increase its frequency. "
             "Instead use `insert_word` method!"
         )
 
@@ -183,14 +179,13 @@ class Vocabulary:
         # If the word is found in vocabulary, and if so...
         if word in self:
             # Decrease word frequency
-            self._vocabulary[word] = self._vocabulary[word] - decrement
+            self.set_word_frequency(word, self._vocabulary[word] - decrement)
 
-            # Update the vocabulary data
-            self._update_vocabulary()
+            return
 
         # IF THE WORD DOESN'T EXIST IN VOCABULARY, RAISE AN EXCEPTION
         raise WordNotFoundError(
-            f"There is no word {word:!r} to decrease its frequency. "
+            f"There is no word {word!r} to decrease its frequency. "
             "Instead use `insert_word` method!"
         )
 
@@ -206,7 +201,7 @@ class Vocabulary:
         # If the word is found in vocabulary, and if so...
         if word in self:
             # Delete the word from vocabulary
-            del self._vocabulary[self._vocabulary.index(word)]
+            self._vocabulary.pop(word)
 
             # Update the vocabulary data
             self._update_vocabulary()
@@ -215,5 +210,5 @@ class Vocabulary:
 
         # IF THE WORD DOESN'T EXIST IN VOCABULARY, RAISE AN EXCEPTION
         raise WordNotFoundError(
-            f"There is no word {word:!r} to remove it from vocabulary."
+            f"There is no word {word!r} to remove it from vocabulary."
         )

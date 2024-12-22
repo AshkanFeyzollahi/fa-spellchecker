@@ -10,7 +10,7 @@ __all__ = ("is_persian_word",)
 def is_persian_word(word: str) -> bool:
     """
     Checks if a word is Persian
-    
+
     :param word: The word to check
     :type word: str
     :return: Is Persian?
