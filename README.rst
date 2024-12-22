@@ -71,6 +71,7 @@ To get started using **fa-spellchecker**, you must install it, if it's not insta
 
         # Import dependencies
         from hazm import word_tokenize
+
         from faspellchecker import SpellChecker
 
         # Define a sentence of Persian words
