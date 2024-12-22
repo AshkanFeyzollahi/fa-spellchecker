@@ -23,10 +23,11 @@ jobs:
       actions: read
     steps:
     - name: Download all the dists
-      uses: actions/download-artifact@v4
+      uses: dawidd6/action-download-artifact@v2
       with:
+        run_id: ${{ github.event.workflow_run.id }}
         name: python-package-distributions
         path: dist/
-        run-id: ${{ github.event.workflow_run.id }}
+        search_artifacts: true
     - name: Publish distribution to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
