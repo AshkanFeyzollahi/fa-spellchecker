@@ -19,9 +19,6 @@ jobs:
       id-token: write
       actions: read
     steps:
-    - name: Set environment variables
-      run: |
-        echo "RELEASE_VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
     - name: Download all the dists
       uses: dawidd6/action-download-artifact@v2
       with:
@@ -40,14 +37,14 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
       run: >-
         gh release create
-        '${{ env.RELEASE_VERSION }}'
+        '${{ github.ref / 'refs/tags/' }}'
         --repo '${{ github.repository }}'
-        --title="${{ github.repository }} ${{ env.RELEASE_VERSION }}"
+        --title="${{ github.repository }} ${{ github.ref / 'refs/tags/' }}"
         --generate-notes
     - name: Upload artifact signatures to GitHub Release
       env:
         GITHUB_TOKEN: ${{ github.token }}
       run: >-
         gh release upload
-        '${{ env.RELEASE_VERSION }}' dist/**
+        '${{ github.ref / 'refs/tags/' }}' dist/**
         --repo '${{ github.repository }}'
