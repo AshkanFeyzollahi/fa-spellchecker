@@ -2,24 +2,21 @@ name: Upload the Python distribution to GitHub Release
 
 on:
   workflow_run:
-    workflows: [Run tests, Build distribution, Publish the Python distribution to PyPI]
-    types: [completed]
+    workflows:
+      - Publish the Python distribution to PyPI
+    types:
+      - completed
 
 jobs:
   github-release:
     name: >-
       Sign the Python distribution with Sigstore
       and upload them to GitHub Release
-    if: |
-      startsWith(github.ref, 'refs/tags/') && 
-      ${{ github.event.workflow_run.conclusion == 'success' }}
-
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
-
     permissions:
       contents: write
       id-token: write
-
     steps:
     - name: Download all the dists
       uses: actions/download-artifact@v4
@@ -27,14 +24,12 @@ jobs:
         name: python-package-distributions
         path: dist/
         run-id: ${{ github.event.workflow_run.id }}
-
     - name: Sign the dists with Sigstore
       uses: sigstore/gh-action-sigstore-python@v3.0.0
       with:
         inputs: >-
           ./dist/*.tar.gz
           ./dist/*.whl
-
     - name: Create GitHub Release
       env:
         GITHUB_TOKEN: ${{ github.token }}
@@ -44,7 +39,6 @@ jobs:
         --repo '${{ github.repository }}'
         --title="${{ github.repository }} ${{ github.ref_name }}"
         --generate-notes
-
     - name: Upload artifact signatures to GitHub Release
       env:
         GITHUB_TOKEN: ${{ github.token }}
