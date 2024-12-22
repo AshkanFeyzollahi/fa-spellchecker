@@ -26,6 +26,10 @@ As said in **pyspellchecker**, It uses a Levenshtein Distance algorithm to find 
 Installation
 -------------------------------------------------------------------------------
 
+    [!IMPORTANT]
+
+    Always prefer installing latest version
+
 To start using **fa-spellchecker** in your Python3 projects, you have to install it which is done by ways below:
 
     1. Package could be installed by using the python package manager **Pip**:
