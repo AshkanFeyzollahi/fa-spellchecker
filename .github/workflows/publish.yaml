@@ -20,6 +20,7 @@ jobs:
       url: https://pypi.org/p/fa-spellchecker
     permissions:
       id-token: write
+      actions: read
     steps:
     - name: Download all the dists
       uses: actions/download-artifact@v4
