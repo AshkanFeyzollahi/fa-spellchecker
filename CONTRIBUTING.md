@@ -19,7 +19,7 @@ We'd also love PRs. If you're thinking of a large PR, we advise opening up an is
 
 1. [Fork][fork] and clone the repository.
 1. Install the development dependencies: `pip install fa-spellchecker[dev]`.
-1. Make sure the tests pass on your machine: `python tests/*`.
+1. Make sure the tests pass on your machine: `python -m unittest discover -s tests/* -p *test.py`.
 1. Make sure to format files using `black` & `isort` (`black` & `isort` comes with installing development dependencies).
 1. Create a new branch: `git checkout -b my-branch-name`.
 1. Make your change, add tests, and make sure the tests still pass.
