@@ -17,14 +17,26 @@ We'd also love PRs. If you're thinking of a large PR, we advise opening up an is
 
 ## Submitting a pull request
 
-1. [Fork][fork] and clone the repository.
-1. Install the development dependencies: `pip install fa-spellchecker[dev]`.
-1. Make sure the tests pass on your machine: `python -m unittest discover -s tests/* -p *test.py`.
-1. Make sure to format files using `black` & `isort` (`black` & `isort` comes with installing development dependencies).
-1. Create a new branch: `git checkout -b my-branch-name`.
-1. Make your change, add tests, and make sure the tests still pass.
-1. Push to your fork and [submit a pull request][pr].
-1. Pat your self on the back and wait for your pull request to be reviewed and merged.
+- Manual way:
+    1. [Fork][fork] and clone the repository.
+    1. Install the development dependencies: `pip install fa-spellchecker[dev]`.
+    1. Make sure the tests pass on your machine: `python -m unittest discover -s tests -p *test.py`.
+    1. Create a new branch: `git checkout -b my-branch-name`.
+    1. Make your change, add tests, and make sure the tests still pass.
+    1. Make sure to format files using `black` & `isort` (`black` & `isort` comes with installing development dependencies).
+    1. Push to your fork and [submit a pull request][pr].
+    1. Pat your self on the back and wait for your pull request to be reviewed and merged.
+
+- Using **GNU Make**:
+    1. [Fork][fork] and clone the repository.
+    1. Install the development dependencies: `make dev_dependencies`.
+    1. Make sure the tests pass on your machine: `make test`.
+    1. Create a new branch: `git checkout -b my-branch-name`.
+    1. Make your change, add tests, and make sure the tests still pass.
+    1. Make sure to format files using `black` & `isort` (`black` & `isort` comes with installing development dependencies) -> `make format`.
+    1. Create a new branch: `git checkout -b my-branch-name`.
+    1. Push to your fork and [submit a pull request][pr].
+    1. Pat your self on the back and wait for your pull request to be reviewed and merged.
 
 Here are a few things you can do that will increase the likelihood of your pull request being accepted:
 
