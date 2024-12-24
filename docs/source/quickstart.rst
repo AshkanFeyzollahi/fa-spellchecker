@@ -17,7 +17,7 @@ Setting up the spell checker requires importing and initializing the instance.
 
     spellchecker = SpellChecker()
 
-Ways to check if a word is in the vocabulary:
+Ways to check if a word is in the dictionary:
 
 .. code:: python
 
@@ -25,12 +25,12 @@ Ways to check if a word is in the vocabulary:
 
     spellchecker = SpellChecker()
 
-    'سلام' in spellchecker.vocabulary # True
+    'سلام' in spellchecker.dictionary # True
 
-    # find those words from a list of words that are found in the vocabulary
+    # find those words from a list of words that are found in the dictionary
     spellchecker.known(['صابون', 'سابون']) # {'صابون'}
 
-    # find those words from a list of words that are not found in the vocabulary
+    # find those words from a list of words that are not found in the dictionary
     spellchecker.unknown(['صابون', 'سابون']) # {'سابون'}
 
 Once a word is identified as misspelled, you can find the likeliest replacement:
@@ -59,28 +59,28 @@ Or if the word identified as the likeliest is not correct, a list of candidates 
     for word in misspelled:
         spellchecker.candidates(word)  # {'مابون', 'سابو', 'ساسون', 'تابون', 'صابون', 'گابون', 'سالون'}
 
-Vocabulary
+Dictionary
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Vocabulary is where you can add, remove & etc. words to spell checker. Actually there are many other usages which can be found at below!
+Dictionary is where you can add, remove & etc. words to spell checker. Actually there are many other usages which can be found at below!
 
-Initializing a vocabulary object to use with spell checker or using default vocabulary that come with spell checker itself:
+Initializing a dictionary object to use with spell checker or using default dictionary that come with spell checker itself:
 
 .. code:: python
 
-    from faspellchecker import SpellChecker, Vocabulary
+    from faspellchecker import SpellChecker, Dictionary
 
-    # Initializing vocabulary separately
-    vocabulary = Vocabulary("example-vocabulary")
+    # Initializing dictionary separately
+    dictionary = Dictionary("example-dictionary")
 
-    spellchecker1 = SpellChecker(vocabulary)
+    spellchecker1 = SpellChecker(dictionary)
 
-    # Or getting default vocabulary object from spellchecker
+    # Or getting default dictionary object from spellchecker
     spellchecker2 = SpellChecker()
 
-    vocabulary = spellchecker2.vocabulary
+    dictionary = spellchecker2.dictionary
 
-Adding new words/terms to vocabulary:
+Adding new words/terms to dictionary:
 
 .. code:: python
 
@@ -89,16 +89,16 @@ Adding new words/terms to vocabulary:
     # Initialize spellchecker
     spellchecker = SpellChecker()
 
-    # Get the vocabulary
-    vocabulary = spellchecker.vocabulary
+    # Get the dictionary
+    dictionary = spellchecker.dictionary
 
     # Add the word you wish to add, by the way frequency field is optional!
-    vocabulary.insert_word("اشکان", frequency=90)
+    dictionary.insert_word("اشکان", frequency=90)
 
     # Now test it!
-    "اشکان" in vocabulary # True
+    "اشکان" in dictionary # True
 
-Removing words/terms from vocabulary:
+Removing words/terms from dictionary:
 
 .. code:: python
 
@@ -107,16 +107,17 @@ Removing words/terms from vocabulary:
     # Initialize spellchecker
     spellchecker = SpellChecker()
 
-    # Get the vocabulary
-    vocabulary = spellchecker.vocabulary
+    # Get the dictionary
+    dictionary = spellchecker.dictionary
 
     # Add the word you wish to add
-    vocabulary.delete_word("درخت")
+    dictionary.delete_word("درخت")
+    # equivalent: del dictionary["درخت"]
 
     # Now test it!
-    "درخت" in vocabulary # False
+    "درخت" in dictionary # False
 
-Setting a new frequency to words in vocabulary:
+Setting a new frequency to words in dictionary:
 
 .. code:: python
 
@@ -125,19 +126,20 @@ Setting a new frequency to words in vocabulary:
     # Initialize spellchecker
     spellchecker = SpellChecker()
 
-    # Get the vocabulary
-    vocabulary = spellchecker.vocabulary
+    # Get the dictionary
+    dictionary = spellchecker.dictionary
 
     # Test a correction
     spellchecker.correction("سللم") # 'سالم'
 
     # Set the frequency of the word
-    vocabulary.set_word_frequency("سلام", 9999)
+    dictionary.set_word_frequency("سلام", 9999)
+    # equivalent: dictionary["سلام"] = 9999
 
     # Now test the correction again
     spellchecker.correction("سللم") # 'سلام'
 
-Increasing frequency of words in vocabulary:
+Increasing frequency of words in dictionary:
 
 .. code:: python
 
@@ -146,19 +148,20 @@ Increasing frequency of words in vocabulary:
     # Initialize spellchecker
     spellchecker = SpellChecker()
 
-    # Get the vocabulary
-    vocabulary = spellchecker.vocabulary
+    # Get the dictionary
+    dictionary = spellchecker.dictionary
 
     # Test a correction
     spellchecker.correction("سللم") # 'سالم'
 
     # Increase the frequency of the word
-    vocabulary.increase_word_frequency("سلام", 9999)
+    dictionary.increase_word_frequency("سلام", 9999)
+    # equivalent: dictionary["سلام"] += 9999
 
     # Now test the correction again
     spellchecker.correction("سللم") # 'سلام'
 
-Decreasing frequency of words in vocabulary:
+Decreasing frequency of words in dictionary:
 
 .. code:: python
 
@@ -167,14 +170,15 @@ Decreasing frequency of words in vocabulary:
     # Initialize spellchecker
     spellchecker = SpellChecker()
 
-    # Get the vocabulary
-    vocabulary = spellchecker.vocabulary
+    # Get the dictionary
+    dictionary = spellchecker.dictionary
 
     # Test a correction
     spellchecker.correction("سللم") # 'سالم'
 
     # Increase the frequency of the word
-    vocabulary.decrease_word_frequency("سالم", 9999)
+    dictionary.decrease_word_frequency("سالم", 9999)
+    # equivalent: dictionary["سالم"] -= 9999
 
     # Now test the correction again
     spellchecker.correction("سللم") # maybe 'سلام' or something else than 'سالم'
