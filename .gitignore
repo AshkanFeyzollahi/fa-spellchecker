@@ -1,3 +1,4 @@
 faspellchecker/__pycache__/
 tests/__pycache__/
-test-vocabulary.json.gz
+test-dictionary.json.gz
+.vscode/
