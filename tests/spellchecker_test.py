@@ -4,9 +4,9 @@ Test automation for the class `SpellChecker`
 
 import unittest
 
-from faspellchecker import SpellChecker, Vocabulary
+from faspellchecker import Dictionary, SpellChecker
 
-test_spellchecker = SpellChecker(Vocabulary("test"))
+test_spellchecker = SpellChecker(Dictionary("test"))
 
 
 class TestSpellChecker(unittest.TestCase):
