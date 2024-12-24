@@ -4,7 +4,7 @@ Spellchecker base module;
 
 import typing
 
-from faspellchecker.vocabulary import Vocabulary
+from faspellchecker.dictionary import Dictionary
 
 __all__ = ("SpellChecker",)
 
@@ -14,21 +14,21 @@ class SpellChecker:
     The SpellChecker class encapsulates the basics needed to accomplish a
     simple spell checking algorithm
 
-    :param vocabulary: A vocabulary for use with spellchecker,
+    :param dictionary: A dictionary for use with spellchecker,
         defaults to None
-    :type vocabulary: Vocabulary, optional
+    :type dictionary: Dictionary, optional
     """
 
-    def __init__(self, vocabulary: Vocabulary | None = None):
-        self._vocabulary = vocabulary if vocabulary is not None else Vocabulary()
+    def __init__(self, dictionary: Dictionary | None = None):
+        self._dictionary = dictionary if dictionary is not None else Dictionary()
 
     @property
-    def vocabulary(self) -> Vocabulary:
+    def dictionary(self) -> Dictionary:
         """
-        Return the vocabulary object.
+        Return the dictionary object.
         """
 
-        return self._vocabulary
+        return self._dictionary
 
     def word_frequency(self, word: str) -> typing.Optional[int]:
         """
@@ -40,7 +40,7 @@ class SpellChecker:
         :rtype: Optional[int]
         """
 
-        return self.vocabulary[word]
+        return self.dictionary[word]
 
     def correction(self, word: str) -> str:
         """
@@ -76,33 +76,33 @@ class SpellChecker:
         """
         The subset of `words` that appear in the dictionary of words
 
-        :param words: List of words to determine which are in the vocabulary
+        :param words: List of words to determine which are in the dictionary
         :type words: list
         :return: The set of those words from the input that are in the
-            vocabulary
+            dictionary
         :rtype: set
         """
 
-        return set(word for word in words if word in self.vocabulary)
+        return set(word for word in words if word in self.dictionary)
 
     def unknown(self, words: typing.Iterable[str]) -> typing.Set[str]:
         """
         The subset of `words` that doesn't appear in the dictionary of words
 
         :param words: List of words to determine which are not in the
-            vocabulary
+            dictionary
         :type words: list
         :return: The set of those words from the input that are not in the
-            vocabulary
+            dictionary
         :rtype: set
         """
 
-        return set(word for word in words if word not in self.vocabulary)
+        return set(word for word in words if word not in self.dictionary)
 
     def edit_distance_1(self, word: str) -> typing.Set[str]:
         """
         Compute all strings that are one edit away from `word` using only
-        the letters in the vocabulary
+        the letters in the dictionary
 
         :param word: The word for which to calculate the edit distance
         :type word: str
@@ -122,7 +122,7 @@ class SpellChecker:
     def edit_distance_2(self, word: str) -> typing.Set[str]:
         """
         Compute all strings that are two edits away from `word` using only
-        the letters in the vocabulary
+        the letters in the dictionary
 
         :param word: The word for which to calculate the edit distance
         :type word: str

@@ -11,9 +11,9 @@ def is_persian_word(word: str) -> bool:
     """
     Checks if a word is Persian
 
-    :param word: The word to check
+    :param word: The word to determine if it's Persian
     :type word: str
-    :return: Is Persian?
+    :return: True if the word is Persian
     :rtype: bool
     """
 
