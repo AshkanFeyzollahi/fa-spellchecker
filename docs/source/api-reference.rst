@@ -9,10 +9,10 @@ Here you can find the full developer API reference for the **fa-spellchecker** p
 .. automodule:: faspellchecker.spellchecker
    :members:
 
-:mod:`faspellchecker.vocabulary`
+:mod:`faspellchecker.dictionary`
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. automodule:: faspellchecker.vocabulary
+.. automodule:: faspellchecker.dictionary
    :members:
 
 :mod:`faspellchecker.utils`
