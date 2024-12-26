@@ -43,7 +43,7 @@ Here are a few things you can do that will increase the likelihood of your pull 
 - Follow the [PEP 8][pep8] style guide for Python code.
 - Write and update tests.
 - Keep your changes as focused as possible. If there are multiple changes you would like to make that are not dependent upon each other, consider submitting them as separate pull requests.
-- Write a [good commit message](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).
+- Write a [good commit message](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) (and also checkout [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)).
 
 Work in Progress pull requests are also welcome to get feedback early on, or if there is something blocked you.
 
