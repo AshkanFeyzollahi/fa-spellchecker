@@ -75,6 +75,12 @@ jobs:
         inputs: >-
           ./dist/*.tar.gz
           ./dist/*.whl
+    - name: Update CHANGELOG
+      id: changelog
+      uses: requarks/changelog-action@v1
+      with:
+        token: ${{ github.token }}
+        tag: ${{ github.ref_name }}
     - name: Create GitHub Release
       env:
         GITHUB_TOKEN: ${{ github.token }}
@@ -82,8 +88,8 @@ jobs:
         gh release create
         "$GITHUB_REF_NAME"
         --repo "$GITHUB_REPOSITORY"
-        --title="${GITHUB_REPOSITORY#*/} ${tag#v}"
-        --generate-notes
+        --notes "${{ steps.changelog.outputs.change }}"
+        --title="${GITHUB_REPOSITORY#*/}  ${{ github.ref_name }}"
     - name: Upload artifact signatures to GitHub Release
       env:
         GITHUB_TOKEN: ${{ github.token }}
