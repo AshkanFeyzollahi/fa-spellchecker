@@ -9,7 +9,7 @@ import shutil
 from typing import Dict
 
 from faspellchecker.exceptions import NonPersianWordError, WordDoesNotExist
-from faspellchecker.utils import is_persian_word
+from faspellchecker.utils import is_word_persian
 
 __all__ = ("Dictionary",)
 
@@ -51,7 +51,7 @@ class Dictionary:
 
     def __setitem__(self, word: str, frequency: int) -> None:
         # Check if word is persian
-        if not is_persian_word(word):
+        if not is_word_persian(word):
             # If not... then raise an exception
             raise NonPersianWordError(f"{word!r} is not a persian word!")
 
@@ -123,7 +123,7 @@ class Dictionary:
         """
 
         # Check if word is persian, and if so...
-        if is_persian_word(word):
+        if is_word_persian(word):
             # Insert the word to dictionary
             self._dictionary[word] = frequency
 
