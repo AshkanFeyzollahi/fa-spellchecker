@@ -11,18 +11,22 @@ jobs:
     - uses: actions/checkout@v4
       with:
         persist-credentials: false
+
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: "3.x"
+
     - name: Install pypa/build
       run: >-
         python3 -m
         pip install
         build
         --user
+
     - name: Build a binary wheel and a source tarball
       run: python3 -m build
+
     - name: Store the distribution packages
       uses: actions/upload-artifact@v4
       with:
@@ -33,12 +37,16 @@ jobs:
     name: >-
       Publish Python 🐍 distribution 📦 to PyPI
     if: startsWith(github.ref, 'refs/tags/')
+
     needs:
     - build
+
     runs-on: ubuntu-latest
+
     environment:
       name: pypi
       url: https://pypi.org/p/fa-spellchecker
+
     permissions:
       id-token: write
 
@@ -48,6 +56,7 @@ jobs:
       with:
         name: python-package-distributions
         path: dist/
+
     - name: Publish distribution 📦 to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
 
@@ -69,33 +78,46 @@ jobs:
       with:
         name: python-package-distributions
         path: dist/
+
     - name: Sign the dists with Sigstore
       uses: sigstore/gh-action-sigstore-python@v3.0.0
       with:
         inputs: >-
           ./dist/*.tar.gz
           ./dist/*.whl
+
+    - name: Get previous tag
+      id: previousTag
+      run: |
+        name=$(git --no-pager tag --sort=creatordate --merged ${{ github.ref_name }} | tail -2 | head -1)
+        echo "previousTag: $name"
+        echo "previousTag=$name" >> $GITHUB_ENV
+
     - name: Update CHANGELOG
       id: changelog
       uses: requarks/changelog-action@v1
       with:
         token: ${{ github.token }}
-        tag: ${{ github.ref_name }}
-    - name: Create GitHub Release
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-      run: >-
-        gh release create
-        "$GITHUB_REF_NAME"
-        --repo "$GITHUB_REPOSITORY"
-        --notes "${{ steps.changelog.outputs.change }}"
-        --title="${GITHUB_REPOSITORY#*/}  ${{ github.ref_name }}"
+        fromTag: ${{ github.ref_name }}
+        toTag: ${{ env.previousTag }}
+
+    - name: Create Github Release
+      uses: ncipollo/release-action@v1.12.0
+      with:
+        allowUpdates: true
+        draft: false
+        makeLatest: true
+        name: ${{ github.ref_name }}
+        body: ${{ steps.changelog.outputs.changes }}
+        token: ${{ github.token }}
+
     - name: Commit CHANGELOG.md
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
         branch: main
         commit_message: 'docs: update CHANGELOG.md for ${{ github.ref_name }} [skip ci]'
         file_pattern: CHANGELOG.md
+
     - name: Upload artifact signatures to GitHub Release
       env:
         GITHUB_TOKEN: ${{ github.token }}
