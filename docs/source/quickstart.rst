@@ -182,3 +182,52 @@ Decreasing frequency of words in dictionary:
 
     # Now test the correction again
     spellchecker.correction("سللم") # maybe 'سلام' or something else than 'سالم'
+
+Utilities
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Utilities are just helper functions those made for use with **fa-spellchecker**
+
+Checking if a word is Persian (or rather the word only contains Persian alphabet)
+
+.. code:: python
+
+    from faspellchecker.utils import is_word_persian
+
+    # Check if the word is Persian
+    is_word_persian("سالم") # True
+
+    # Note that misspelled words are also considered as a Persian word
+    is_word_persian("سللم") # True
+
+    # But... words with other types of characters (e.g. digits, whitespace and
+    # etc.) will lead to be considered as a non Persian word
+    is_word_persian("۱کالا") # False
+    is_word_persian("دوست صمیمی") # False
+    is_word_persian("صابون\n") # False
+    is_word_persian("مجموعهA") # False
+
+    # And there are the words that doesn't even contain a single Persian
+    # character
+    is_word_persian("hello") # False
+
+Removing non Persian words from a list of strings? There you go!
+
+.. code:: python
+
+    from faspellchecker.utils import ignore_non_persian_words
+
+    # Define a list of strings
+    list_of_words = [
+        "سالم",
+        "سللم",
+        "۱کالا",
+        "دوست صمیمی",
+        "صابون\n",
+        "مجموعهA",
+        "hello"
+    ]
+
+    # Get the words from the list which are persian based on is_word_persian
+    # function
+    ignore_non_persian_words(list_of_words) # ["سالم", "سللم"]
