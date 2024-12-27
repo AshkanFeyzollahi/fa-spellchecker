@@ -2,9 +2,8 @@
 Some utilities written for use with/in faspellchecker
 """
 
-from typing import List
-
 import re
+from typing import List
 
 __all__ = ("is_persian_word", "ignore_non_persian_words")
 
@@ -20,6 +19,7 @@ def is_word_persian(word: str) -> bool:
     """
 
     return re.fullmatch("^[آ-ی]+$", word) is not None
+
 
 def ignore_non_persian_words(words: List[str]) -> List[str]:
     """
